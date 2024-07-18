@@ -13,6 +13,14 @@ import java.util.List;
 import java.util.UUID;
 
 
+/**
+ * ChatController handles HTTP requests for managing chat sessions and messages.
+ * It includes endpoints for starting a chat session, sending messages, retrieving
+ * messages, and getting chatbot responses.
+ *
+ * @author helmalki
+ */
+
 @RestController
 @RequestMapping("/chat")
 @Slf4j

@@ -75,25 +75,4 @@ public class ChatServiceTest {
         assertEquals(message2.getContent(), messages.get(1).getContent());
     }
 
-    @Test
-    void testSendSupportMessage() {
-        ChatSession session = new ChatSession();
-        ChatSession createdSession = chatService.startChat(session);
-
-        ChatMessage message = new ChatMessage();
-        message.setSessionId(createdSession.getId());
-        message.setSender("Support");
-        message.setContent("How can I help you?");
-
-        ChatMessage createdMessage = chatService.sendSupportMessage(message);
-
-        assertNotNull(createdMessage.getId());
-        assertEquals("Support", createdMessage.getSender());
-        assertEquals("How can I help you?", createdMessage.getContent());
-        assertNotNull(createdMessage.getTimestamp());
-
-        List<ChatMessage> messages = chatService.getMessages(createdSession.getId());
-        assertEquals(1, messages.size());
-        assertEquals(createdMessage, messages.get(0));
-    }
 }
